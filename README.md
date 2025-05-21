@@ -13,7 +13,7 @@ A modern website for doctors and healthcare professionals built with Next.js.
 1. Clone the repository
 2. Install dependencies:
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
 3. Run the development server:
    ```bash
@@ -34,7 +34,7 @@ You can also deploy the site manually:
 
 1. Install dependencies:
    ```bash
-   npm install
+   npm install --legacy-peer-deps
    ```
 
 2. Build and deploy:
