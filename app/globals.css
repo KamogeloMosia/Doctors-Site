@@ -9,8 +9,8 @@
   --base-secondary: #111827;
   --text-primary: #1f2937;
   --text-secondary: #f3f4f6;
-  --accent: #0891b2; /* Brand color (persists across themes) */
-  --accent-hover: #0e7490;
+  --accent: #8b5cf6; /* Brand color - Purple */
+  --accent-hover: #7c3aed;
   --muted: #6b7280;
   --border: #e5e7eb;
   --card: #ffffff;
@@ -22,13 +22,13 @@
 }
 
 /* Dark theme overrides */
-[data-theme="dark"] {
+.dark {
   --base-primary: #111827;
   --base-secondary: #ffffff;
   --text-primary: #f3f4f6;
   --text-secondary: #1f2937;
-  --accent: #06b6d4;
-  --accent-hover: #0891b2;
+  --accent: #a78bfa;
+  --accent-hover: #8b5cf6;
   --muted: #9ca3af;
   --border: #374151;
   --card: #1f2937;
@@ -45,8 +45,8 @@
   --base-secondary: #111827;
   --text-primary: #1f2937;
   --text-secondary: #f3f4f6;
-  --accent: #0891b2;
-  --accent-hover: #0e7490;
+  --accent: #8b5cf6;
+  --accent-hover: #7c3aed;
   --muted: #6b7280;
   --border: #e5e7eb;
   --card: #ffffff;
@@ -878,31 +878,50 @@ h6 {
     background-color: var(--primary-color);
     color: var(--button-text-color);
     border: 1px solid var(--primary-color);
+    /* Ensure contrast for button text */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 0, 0, 0.2);
   }
-
+  
   .btn-primary:hover {
     filter: brightness(90%);
   }
-
+  
   .btn-secondary {
     background-color: var(--secondary-color);
     color: var(--button-text-color);
     border: 1px solid var(--secondary-color);
+    /* Ensure contrast for button text */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.5), 0 0 3px rgba(0, 0, 0, 0.2);
   }
-
+  
   .dark .btn-secondary {
     border: 1px solid var(--border-color);
   }
-
+  
   .btn-accent {
     background-color: var(--accent-color);
     color: var(--accent-button-text-color);
     border: 1px solid var(--accent-color);
+    /* Ensure contrast for button text */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 0 2px rgba(0, 0, 0, 0.2);
   }
-
+  
   .palette-boldHealthTech .btn-secondary {
     background-color: var(--secondary-color);
     color: var(--text-color);
+  }
+  
+  /* Ensure text visibility for all buttons */
+  button, .btn, a.btn, .button, a.button, [role="button"] {
+    /* Add subtle text shadow to ensure readability against any background */
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bg-primary button, .bg-secondary button, 
+  .dark button, [data-theme*="dark"] button,
+  button[style*="background"], [class*="bg-"] button {
+    /* Enhanced contrast for buttons on colored backgrounds */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   }
 
   .btn-lg {

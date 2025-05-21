@@ -1,68 +1,127 @@
-# Doctors Site
+# Tailwind Landing Page
 
-A modern website for doctors and healthcare professionals built with Next.js.
+A modern, responsive landing page built with Next.js, Tailwind CSS, and a customizable theme system.
 
 ## Features
 
-- Responsive design
-- Static site export for easy deployment
-- Optimized for performance
+- Responsive design for all device sizes
+- Dark/light mode toggle
+- Multiple theme options with customizable colors
+- Sidebar navigation for desktop and bottom navigation for mobile
+- Admin panel for theme customization
 
 ## Getting Started
 
-1. Clone the repository
+### Prerequisites
+
+- Node.js 18 or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   \`\`\`bash
+   git clone https://github.com/your-username/tailwind-landing.git
+   cd tailwind-landing
+   \`\`\`
+
 2. Install dependencies:
-   ```bash
-   npm install --legacy-peer-deps
-   ```
+   \`\`\`bash
+   npm install
+   # or
+   yarn install
+   \`\`\`
+
 3. Run the development server:
-   ```bash
+   \`\`\`bash
    npm run dev
-   ```
+   # or
+   yarn dev
+   \`\`\`
 
-## Deployment
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-This site is configured for deployment on GitHub Pages. The base path is set to `/Doctors-Site` in production.
+## Deployment to GitHub Pages
 
-### Setup for GitHub Pages
+### Automatic Deployment (Recommended)
 
-1. Create a new repository named `Doctors-Site` on GitHub
-2. Update the `homepage` and `repository` fields in package.json with your GitHub username
-3. Push your code to the repository
+This repository is configured to automatically deploy to GitHub Pages when you push to the main branch.
 
-### Automatic Deployment
+1. Push your changes to the main branch:
+   \`\`\`bash
+   git add .
+   git commit -m "Your commit message"
+   git push origin main
+   \`\`\`
 
-The site is automatically deployed to GitHub Pages when changes are pushed to the main branch, using GitHub Actions:
+2. GitHub Actions will automatically build and deploy your site to the `gh-pages` branch.
 
-1. Go to your repository on GitHub
-2. Navigate to Settings > Pages
-3. Select "GitHub Actions" as the source
-4. The website will be available at: https://yourusername.github.io/Doctors-Site
+3. Your site will be available at `https://your-username.github.io/tailwind-landing/`
 
 ### Manual Deployment
 
-You can also deploy the site manually:
+If you prefer to deploy manually:
 
-1. Install dependencies:
-   ```bash
-   npm install --legacy-peer-deps
-   ```
+1. Update the `GITHUB_USERNAME` and `REPO_NAME` variables in `scripts/deploy.js`
 
-2. Build and deploy:
-   ```bash
+2. Run the deploy script:
+   \`\`\`bash
    npm run deploy
-   ```
+   \`\`\`
 
-This will build the site and deploy it to the `gh-pages` branch, which GitHub Pages will serve.
+3. Your site will be available at `https://your-username.github.io/tailwind-landing/`
 
-### Custom Domain (Optional)
+## Customization
 
-To use a custom domain:
-1. Update the CNAME file in the public directory with your domain
-2. Configure your DNS settings as described in GitHub Pages documentation
+### Themes
 
-## Technologies Used
+The site includes multiple built-in themes that can be selected from the theme selector. You can also customize the colors in the admin panel.
 
-- Next.js
-- React
-- Tailwind CSS
+To access the admin panel, go to `/admin` and use the password `admin123`.
+
+### Adding New Pages
+
+1. Create a new file in the `app` directory, e.g., `app/new-page.tsx`
+2. Add the page to the navigation in `components/side-navbar.tsx` and `components/bottom-navbar.tsx`
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+\`\`\`
+
+Let's also create a simple `.gitignore` file:
+
+```plaintext file=".gitignore"
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts

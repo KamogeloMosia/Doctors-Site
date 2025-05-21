@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 export function Header() {
   return (
@@ -22,7 +23,8 @@ export function Header() {
             Contact
           </Link>
         </nav>
-        <div className="ml-4">
+        <div className="ml-4 flex items-center gap-3">
+          <ThemeToggle />
           <Button size="sm">Book Appointment</Button>
         </div>
       </div>

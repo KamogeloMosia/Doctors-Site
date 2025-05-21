@@ -1,11 +1,11 @@
-import type React from "react"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
+import ResponsiveLayout from "@/components/responsive-layout"
+import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
+import type React from "react"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import Header from "@/components/header"
-import Footer from "@/components/footer"
-import ResponsiveLayout from "@/components/responsive-layout"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,8 +32,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Add a base path meta tag to help with GitHub Pages routing
+  const basePath = process.env.NODE_ENV === 'production' ? '/tailwind-landing' : '';
+  
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <head>
+        <meta name="base-path" content={basePath} />
+        {/* Other head elements */}
+      </head>
       <body className="relative antialiased">
         <ThemeProvider>
           <ResponsiveLayout>

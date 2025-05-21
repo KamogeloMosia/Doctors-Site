@@ -3,15 +3,11 @@ const nextConfig = {
   output: 'export',
   // Configure for GitHub Pages - adjust the basePath if you're deploying to a custom domain
   // or if your repo is not at the root of your GitHub Pages site
-  basePath: process.env.NODE_ENV === 'production' ? '/Doctors-Site' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Doctors-Site/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/tailwind-landing' : '',
   images: {
     unoptimized: true, // Required for static export
   },
-  // Disable server components for static export
-  experimental: {
-    appDir: true,
-  },
+  // Note: appDir is now default in Next.js 15+
   eslint: {
     ignoreDuringBuilds: true,
   },
