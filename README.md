@@ -22,7 +22,27 @@ A modern website for doctors and healthcare professionals built with Next.js.
 
 ## Deployment
 
-This site is configured for deployment on GitHub Pages. The base path is set to `/your-repo-name` in production.
+This site is configured for deployment on GitHub Pages. The base path is set to `/Doctors-Site` in production.
+
+### Automatic Deployment
+
+The site is automatically deployed to GitHub Pages when changes are pushed to the main branch, using GitHub Actions.
+
+### Manual Deployment
+
+You can also deploy the site manually:
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Build and deploy:
+   ```bash
+   npm run deploy
+   ```
+
+This will build the site and deploy it to the `gh-pages` branch, which GitHub Pages will serve.
 
 ## Technologies Used
 
