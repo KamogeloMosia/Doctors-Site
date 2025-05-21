@@ -3,7 +3,7 @@ const nextConfig = {
   output: 'export',
   // Configure for GitHub Pages - adjust the basePath if you're deploying to a custom domain
   // or if your repo is not at the root of your GitHub Pages site
-  basePath: process.env.NODE_ENV === 'production' ? '/tailwind-landing' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/your-repo-name' : '',
   images: {
     unoptimized: true, // Required for static export
   },
