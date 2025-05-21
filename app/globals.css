@@ -1,0 +1,1896 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add these CSS variables at the top of the file, before any other styles */
+:root {
+  /* Theme colors - Light mode defaults */
+  --base-primary: #ffffff;
+  --base-secondary: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #f3f4f6;
+  --accent: #0891b2; /* Brand color (persists across themes) */
+  --accent-hover: #0e7490;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --card-hover: #f9fafb;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --base-primary: #111827;
+  --base-secondary: #ffffff;
+  --text-primary: #f3f4f6;
+  --text-secondary: #1f2937;
+  --accent: #06b6d4;
+  --accent-hover: #0891b2;
+  --muted: #9ca3af;
+  --border: #374151;
+  --card: #1f2937;
+  --card-hover: #374151;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+/* Professional Theme - Light (Default) */
+[data-theme="professional-light"] {
+  --base-primary: #ffffff;
+  --base-secondary: #111827;
+  --text-primary: #1f2937;
+  --text-secondary: #f3f4f6;
+  --accent: #0891b2;
+  --accent-hover: #0e7490;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --card-hover: #f9fafb;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* Professional Theme - Dark */
+[data-theme="professional-dark"] {
+  --base-primary: #111827;
+  --base-secondary: #ffffff;
+  --text-primary: #f3f4f6;
+  --text-secondary: #1f2937;
+  --accent: #06b6d4;
+  --accent-hover: #0891b2;
+  --muted: #9ca3af;
+  --border: #374151;
+  --card: #1f2937;
+  --card-hover: #374151;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+/* Calm Theme - Light */
+[data-theme="calm-light"] {
+  --base-primary: #f0f9ff;
+  --base-secondary: #0c4a6e;
+  --text-primary: #0c4a6e;
+  --text-secondary: #f0f9ff;
+  --accent: #0ea5e9;
+  --accent-hover: #0284c7;
+  --muted: #64748b;
+  --border: #bae6fd;
+  --card: #ffffff;
+  --card-hover: #e0f2fe;
+  --success: #0d9488;
+  --warning: #f59e0b;
+  --error: #e11d48;
+  --info: #3b82f6;
+}
+
+/* Calm Theme - Dark */
+[data-theme="calm-dark"] {
+  --base-primary: #0f172a;
+  --base-secondary: #e0f2fe;
+  --text-primary: #e0f2fe;
+  --text-secondary: #0f172a;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --muted: #94a3b8;
+  --border: #1e3a8a;
+  --card: #1e293b;
+  --card-hover: #334155;
+  --success: #14b8a6;
+  --warning: #fbbf24;
+  --error: #f43f5e;
+  --info: #60a5fa;
+}
+
+/* Vibrant Theme - Light */
+[data-theme="vibrant-light"] {
+  --base-primary: #fdf2f8;
+  --base-secondary: #831843;
+  --text-primary: #831843;
+  --text-secondary: #fdf2f8;
+  --accent: #ec4899;
+  --accent-hover: #db2777;
+  --muted: #64748b;
+  --border: #fbcfe8;
+  --card: #ffffff;
+  --card-hover: #fce7f3;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* Vibrant Theme - Dark */
+[data-theme="vibrant-dark"] {
+  --base-primary: #4c1d95;
+  --base-secondary: #fdf4ff;
+  --text-primary: #fdf4ff;
+  --text-secondary: #4c1d95;
+  --accent: #d946ef;
+  --accent-hover: #c026d3;
+  --muted: #c4b5fd;
+  --border: #7e22ce;
+  --card: #6d28d9;
+  --card-hover: #7c3aed;
+  --success: #34d399;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+/* High Contrast Theme - Light */
+[data-theme="high-contrast-light"] {
+  --base-primary: #ffffff;
+  --base-secondary: #000000;
+  --text-primary: #000000;
+  --text-secondary: #ffffff;
+  --accent: #000000;
+  --accent-hover: #333333;
+  --muted: #555555;
+  --border: #000000;
+  --card: #ffffff;
+  --card-hover: #f0f0f0;
+  --success: #006600;
+  --warning: #cc6600;
+  --error: #cc0000;
+  --info: #0000cc;
+}
+
+/* High Contrast Theme - Dark */
+[data-theme="high-contrast-dark"] {
+  --base-primary: #000000;
+  --base-secondary: #ffffff;
+  --text-primary: #ffffff;
+  --text-secondary: #000000;
+  --accent: #ffffff;
+  --accent-hover: #cccccc;
+  --muted: #aaaaaa;
+  --border: #ffffff;
+  --card: #000000;
+  --card-hover: #333333;
+  --success: #00ff00;
+  --warning: #ffcc00;
+  --error: #ff0000;
+  --info: #00ccff;
+}
+
+/* Nature Theme - Light */
+[data-theme="nature-light"] {
+  --base-primary: #f8fafc;
+  --base-secondary: #14532d;
+  --text-primary: #14532d;
+  --text-secondary: #f8fafc;
+  --accent: #16a34a;
+  --accent-hover: #15803d;
+  --muted: #64748b;
+  --border: #dcfce7;
+  --card: #ffffff;
+  --card-hover: #f0fdf4;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* Nature Theme - Dark */
+[data-theme="nature-dark"] {
+  --base-primary: #052e16;
+  --base-secondary: #ecfdf5;
+  --text-primary: #ecfdf5;
+  --text-secondary: #052e16;
+  --accent: #22c55e;
+  --accent-hover: #16a34a;
+  --muted: #a7f3d0;
+  --border: #065f46;
+  --card: #064e3b;
+  --card-hover: #065f46;
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --error: #f87171;
+  --info: #60a5fa;
+}
+
+/* Keep the existing CSS variables but modify them to use our new theme variables */
+:root {
+  --primary-color: var(--accent);
+  --secondary-color: var(--accent-hover);
+  --background-color: var(--base-primary);
+  --card-bg-color: var(--card);
+  --text-color: var(--text-primary);
+  --text-muted-color: var(--muted);
+  --accent-color: var(--card-hover);
+  --border-color: var(--border);
+  --success-color: var(--success);
+  --warning-color: var(--warning);
+  --error-color: var(--error);
+  --info-color: var(--info);
+  --button-text-color: var(--text-secondary);
+  --accent-button-text-color: var(--text-primary);
+}
+
+/* Typography */
+:root {
+  --heading-line-height: 1.2;
+  --body-line-height: 1.6;
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+
+  /* Font weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Transition settings */
+  --transition-duration: 300ms;
+  --transition-timing: ease;
+}
+
+/* Dark theme - default */
+.dark {
+  --background-color: #111827;
+  --card-bg-color: #1f2937;
+  --text-color: #f3f4f6;
+  --text-muted-color: #9ca3af;
+  --accent-color: #374151;
+  --border-color: #374151;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Soft Medical Theme - Light - refined for a calming, trustworthy medical aesthetic */
+.palette-softMedical:not(.dark) {
+  --primary-color: #0891b2;
+  --secondary-color: #0e7490;
+  --background-color: #f8fafc;
+  --card-bg-color: #ecfeff;
+  --text-color: #334155;
+  --text-muted-color: #64748b;
+  --accent-color: #cffafe;
+  --border-color: #bae6fd;
+  --success-color: #0d9488;
+  --warning-color: #f59e0b;
+  --error-color: #e11d48;
+  --info-color: #0284c7;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #334155;
+}
+
+/* Soft Medical Theme - Dark - refined for better contrast and readability */
+.palette-softMedical.dark {
+  --primary-color: #06b6d4;
+  --secondary-color: #0891b2;
+  --background-color: #0f172a;
+  --card-bg-color: #1e293b;
+  --text-color: #f1f5f9;
+  --text-muted-color: #94a3b8;
+  --accent-color: #0e7490;
+  --border-color: #0891b2;
+  --success-color: #14b8a6;
+  --warning-color: #fbbf24;
+  --error-color: #f43f5e;
+  --info-color: #0ea5e9;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Bold HealthTech Theme - Light - refined for a modern, innovative health technology feel */
+.palette-boldHealthTech:not(.dark) {
+  --primary-color: #047857;
+  --secondary-color: #eab308;
+  --background-color: #ffffff;
+  --card-bg-color: #f0fdf4;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #d9f99d;
+  --border-color: #86efac;
+  --success-color: #059669;
+  --warning-color: #fbbf24;
+  --error-color: #dc2626;
+  --info-color: #2563eb;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #1e293b;
+}
+
+/* Bold HealthTech Theme - Dark - refined for better contrast and visual appeal */
+.palette-boldHealthTech.dark {
+  --primary-color: #10b981;
+  --secondary-color: #facc15;
+  --background-color: #0f172a;
+  --card-bg-color: #134e4a;
+  --text-color: #f8fafc;
+  --text-muted-color: #cbd5e1;
+  --accent-color: #065f46;
+  --border-color: #059669;
+  --success-color: #34d399;
+  --warning-color: #fcd34d;
+  --error-color: #f87171;
+  --info-color: #60a5fa;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Neon Pulse Theme - Light */
+.palette-neonPulse:not(.dark) {
+  --primary-color: #06b6d4;
+  --secondary-color: #0891b2;
+  --background-color: #f8fafc;
+  --card-bg-color: #ffffff;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #a855f7;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Neon Pulse Theme - Dark */
+.palette-neonPulse.dark {
+  --primary-color: #0ea5e9;
+  --secondary-color: #0284c7;
+  --background-color: #0f172a;
+  --card-bg-color: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #f472b6;
+  --border-color: #1e293b;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Vital Bloom Theme - Light */
+.palette-vitalBloom:not(.dark) {
+  --primary-color: #10b981;
+  --secondary-color: #059669;
+  --background-color: #faf9f6;
+  --card-bg-color: #ffffff;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #f472b6;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Vital Bloom Theme - Dark */
+.palette-vitalBloom.dark {
+  --primary-color: #34d399;
+  --secondary-color: #10b981;
+  --background-color: #1f2937;
+  --card-bg-color: #111827;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #e879f9;
+  --border-color: #374151;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Spectrum Care Theme - Light */
+.palette-spectrumCare:not(.dark) {
+  --primary-color: #3b82f6;
+  --secondary-color: #2563eb;
+  --background-color: #ffffff;
+  --card-bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #f97316;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Spectrum Care Theme - Dark */
+.palette-spectrumCare.dark {
+  --primary-color: #8b5cf6;
+  --secondary-color: #7c3aed;
+  --background-color: #1e293b;
+  --card-bg-color: #0f172a;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #f97316;
+  --border-color: #374151;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Carbon Clarity Theme - Light */
+.palette-carbonClarity:not(.dark) {
+  --primary-color: #06b6d4;
+  --secondary-color: #0891b2;
+  --background-color: #f3f4f6;
+  --card-bg-color: #ffffff;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #dc2626;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Carbon Clarity Theme - Dark */
+.palette-carbonClarity.dark {
+  --primary-color: #22d3ee;
+  --secondary-color: #06b6d4;
+  --background-color: #111827;
+  --card-bg-color: #1f2937;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #f87171;
+  --border-color: #1f2937;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Sunset Wellness Theme - Light */
+.palette-sunsetWellness:not(.dark) {
+  --primary-color: #fb923c;
+  --secondary-color: #f97316;
+  --background-color: #fffbf0;
+  --card-bg-color: #ffffff;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #f472b6;
+  --border-color: #fde68a;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #ffffff;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Sunset Wellness Theme - Dark */
+.palette-sunsetWellness.dark {
+  --primary-color: #fbbf24;
+  --secondary-color: #f59e0b;
+  --background-color: #2a1b3d;
+  --card-bg-color: #4c1d95;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #f9a8d4;
+  --border-color: #4c1d95;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #1e293b;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Clinical Aurora Theme - Light */
+.palette-clinicalAurora:not(.dark) {
+  --primary-color: #5eead4;
+  --secondary-color: #2dd4bf;
+  --background-color: #ecfdf5;
+  --card-bg-color: #ffffff;
+  --text-color: #1e293b;
+  --text-muted-color: #64748b;
+  --accent-color: #a78bfa;
+  --border-color: #d1fae5;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #1e293b;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Clinical Aurora Theme - Dark */
+.palette-clinicalAurora.dark {
+  --primary-color: #7dd3fc;
+  --secondary-color: #38bdf8;
+  --background-color: #0f172a;
+  --card-bg-color: #1e293b;
+  --text-color: #f8fafc;
+  --text-muted-color: #94a3b8;
+  --accent-color: #c084fc;
+  --border-color: #1e293b;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --info-color: #3b82f6;
+  --button-text-color: #1e293b;
+  --accent-button-text-color: #ffffff;
+}
+
+/* Typography System - Refined for professional appearance */
+body {
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-duration) var(--transition-timing), color var(--transition-duration)
+    var(--transition-timing);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+/* Apply background color to html element as well for full coverage */
+html {
+  background-color: var(--background-color);
+  transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: var(--letter-spacing-tight);
+  line-height: var(--heading-line-height);
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Refined text spacing and sizing */
+p {
+  margin-bottom: 1rem;
+  max-width: 70ch;
+  line-height: var(--body-line-height);
+  color: var(--text-color);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Professional heading hierarchy with improved scaling */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  font-weight: var(--font-weight-extrabold);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  line-height: 1.3;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.4;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0.75rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 0.5rem;
+}
+
+/* Text variations */
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-large {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.text-lead {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  font-weight: var(--font-weight-normal);
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.text-muted {
+  color: var(--text-muted-color);
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.font-medium {
+  font-weight: var(--font-weight-medium);
+}
+
+.font-semibold {
+  font-weight: var(--font-weight-semibold);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.font-extrabold {
+  font-weight: var(--font-weight-extrabold);
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
+}
+
+.tracking-tight {
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.tracking-normal {
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+.tracking-wide {
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Add navbar-specific styles */
+@layer components {
+  .navbar-link {
+    @apply text-base font-medium transition-colors duration-200;
+    color: var(--text-color);
+  }
+
+  .navbar-link:hover {
+    color: var(--primary-color);
+  }
+
+  .navbar-button {
+    @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+  }
+
+  /* Form elements styling - refined for better visual hierarchy */
+  .form-input {
+    @apply block w-full py-3 px-4 rounded-md shadow-sm focus:ring-2 focus:ring-offset-2 transition duration-200;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .form-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb, 17, 24, 39), 0.2);
+  }
+
+  .form-label {
+    @apply block text-sm font-medium mb-1;
+    color: var(--text-color);
+  }
+
+  .form-select {
+    @apply block w-full py-3 px-4 rounded-md shadow-sm focus:ring-2 focus:ring-offset-2 transition duration-200;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .form-select:focus {
+    border-color: var(--primary-color);
+  }
+
+  .form-button {
+    @apply w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-200;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+  }
+
+  .dark .form-button {
+    border: 1px solid var(--primary-color);
+  }
+
+  .form-button:hover {
+    filter: brightness(90%);
+  }
+
+  /* Card styling - refined for better visual hierarchy */
+  .card {
+    @apply rounded-lg shadow-sm overflow-hidden transition-all duration-300;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+  }
+
+  .card-hover {
+    @apply hover:shadow-md;
+  }
+
+  .card-hover:hover {
+    border-color: var(--primary-color);
+  }
+
+  /* Button styling - refined for better visual hierarchy and dark mode support */
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition-colors duration-200;
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--primary-color);
+  }
+
+  .btn-primary:hover {
+    filter: brightness(90%);
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--button-text-color);
+    border: 1px solid var(--secondary-color);
+  }
+
+  .dark .btn-secondary {
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-accent {
+    background-color: var(--accent-color);
+    color: var(--accent-button-text-color);
+    border: 1px solid var(--accent-color);
+  }
+
+  .palette-boldHealthTech .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .btn-sm {
+    @apply px-3 py-2 text-sm;
+  }
+
+  /* Theme-specific button */
+  .theme-btn {
+    @apply transition-colors duration-300;
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+  }
+}
+
+/* Ensure proper spacing for content below fixed navbar */
+main {
+  padding-top: 1rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-duration) var(--transition-timing), color var(--transition-duration)
+    var(--transition-timing);
+  min-height: 100vh; /* Ensure main content fills the viewport */
+}
+
+/* Ensure the min-h-screen class uses the correct background color */
+.min-h-screen {
+  background-color: var(--background-color);
+  transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+/* Floating bottom navbar - redesigned for center positioning */
+.floating-navbar {
+  @apply fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full shadow-xl;
+  max-width: min(95%, 500px);
+  width: auto;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Navigation icon buttons */
+.nav-icon-btn {
+  @apply flex items-center justify-center p-3 rounded-full hover:bg-opacity-10 hover:bg-gray-500 transition-colors duration-200;
+}
+
+.nav-icon-btn-primary {
+  @apply flex items-center justify-center p-3 rounded-full shadow-md hover:bg-opacity-90 transition-colors duration-200;
+}
+
+.nav-icon {
+  @apply w-5 h-5 sm:w-6 sm:h-6;
+}
+
+/* Theme Toggle Button - Refined with dark theme support for all palettes */
+.theme-toggle-btn {
+}
+
+.nav-icon {
+  @apply w-5 h-5 sm:w-6 sm:h-6;
+}
+
+/* Theme Toggle Button - Refined with dark theme support for all palettes */
+.theme-toggle-btn {
+  @apply flex items-center justify-center p-1 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  height: 38px;
+  width: 38px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+
+.theme-toggle-btn:focus {
+  box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.theme-toggle-track {
+  @apply relative flex items-center justify-between w-14 h-6 rounded-full transition-colors duration-300;
+  background-color: var(--accent-color);
+  transform: scale(0.8);
+}
+
+.dark .theme-toggle-track {
+  background-color: var(--card-bg-color);
+}
+
+.theme-toggle-icon {
+  @apply absolute w-4 h-4 transition-all duration-300;
+  z-index: 1;
+}
+
+.theme-toggle-icon.sun {
+  left: 4px;
+  color: #f59e0b;
+  opacity: 0.5;
+  transform: scale(0.9);
+}
+
+.theme-toggle-icon.moon {
+  right: 4px;
+  color: #6366f1;
+  opacity: 0.5;
+  transform: scale(0.9);
+}
+
+/* Light theme - sun icon active */
+:root:not(.dark) .theme-toggle-icon.sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dark theme - moon icon active */
+.dark .theme-toggle-icon.moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Palette-specific colors for theme toggle */
+.palette-softMedical:not(.dark) .theme-toggle-icon.sun {
+  color: #0891b2;
+}
+
+.palette-softMedical.dark .theme-toggle-icon.moon {
+  color: #06b6d4;
+}
+
+.palette-boldHealthTech:not(.dark) .theme-toggle-icon.sun {
+  color: #047857;
+}
+
+.palette-boldHealthTech.dark .theme-toggle-icon.moon {
+  color: #10b981;
+}
+
+.theme-toggle-thumb {
+  @apply absolute top-0.5 left-0.5 w-5 h-5 rounded-full transition-transform duration-300 transform;
+  background-color: var(--primary-color);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dark .theme-toggle-thumb {
+  transform: translateX(8px);
+}
+
+/* Improve responsive behavior */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1280px !important;
+  }
+}
+
+/* Add these section spacing utilities */
+.section-padding {
+  @apply py-10 md:py-14 lg:py-20;
+}
+
+.section-padding-sm {
+  @apply py-6 md:py-10 lg:py-12;
+}
+
+/* Improve container padding */
+.container-padding {
+  @apply px-4 sm:px-6 lg:px-8;
+}
+
+/* Improve spacing between elements */
+.content-spacing > * + * {
+  @apply mt-4 md:mt-6;
+}
+
+.content-spacing-lg > * + * {
+  @apply mt-6 md:mt-8 lg:mt-10;
+}
+
+/* Improve whitespace in text blocks */
+.text-content p {
+  @apply mb-4 leading-relaxed;
+}
+
+.text-content h2 {
+  @apply mt-8 mb-4;
+}
+
+.text-content h3 {
+  @apply mt-6 mb-3;
+}
+
+/* Improve form spacing */
+.form-group {
+  @apply mb-6;
+}
+
+/* Improve card spacing */
+.card-padding {
+  @apply p-5 md:p-6 lg:p-8;
+}
+
+/* Improve section spacing */
+.section-spacing > * + * {
+  @apply mt-12 md:mt-16 lg:mt-24;
+}
+
+/* Responsive grid layouts */
+.responsive-grid-2 {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-8;
+}
+
+.responsive-grid-3 {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8;
+}
+
+.responsive-grid-4 {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8;
+}
+
+/* Improved list styling */
+.feature-list {
+  @apply space-y-3;
+}
+
+.feature-list-item {
+  @apply flex items-start;
+}
+
+.feature-list-icon {
+  @apply h-5 w-5 mt-1 flex-shrink-0;
+  color: var(--primary-color);
+}
+
+.feature-list-text {
+  @apply ml-3;
+  color: var(--text-color);
+}
+
+/* Improved mobile padding */
+@media (max-width: 640px) {
+  .section-padding {
+    @apply py-8;
+  }
+
+  .card-padding {
+    @apply p-4;
+  }
+
+  .container-padding {
+    @apply px-4;
+  }
+}
+
+/* Improved animations */
+.hover-lift {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+/* Improved focus states for accessibility */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-offset-2;
+  ring-color: var(--primary-color);
+}
+
+/* Improved image handling */
+.img-cover {
+  @apply object-cover w-full h-full;
+}
+
+.img-contain {
+  @apply object-contain w-full h-full;
+}
+
+/* Improved mobile menu */
+.mobile-menu-overlay {
+  @apply fixed inset-0 z-40 bg-black bg-opacity-50 transition-opacity duration-300;
+}
+
+.mobile-menu-container {
+  @apply absolute bottom-20 left-1/2 transform -translate-x-1/2 w-11/12 max-w-sm rounded-lg shadow-xl p-4 transition-all duration-300;
+  background-color: var(--background-color);
+}
+
+.mobile-menu-item {
+  @apply flex items-center p-3 rounded-md transition-colors duration-200;
+  color: var(--text-color);
+}
+
+.mobile-menu-item:hover {
+  background-color: var(--accent-color);
+}
+
+.mobile-menu-icon {
+  @apply w-5 h-5 mr-3;
+  color: var(--primary-color);
+}
+
+.mobile-menu-text {
+  @apply font-medium;
+  color: var(--text-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s ease-out forwards;
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Theme transition */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Ensure all icons transition properly */
+svg {
+  transition: color 0.3s ease;
+}
+
+/* Ensure all borders transition properly */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Theme-specific styles for Soft Medical */
+.palette-softMedical {
+  /* Custom styles for Soft Medical theme */
+  .card {
+    background-color: var(--card-bg-color);
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+  }
+
+  .btn-accent {
+    background-color: var(--accent-color);
+    color: var(--accent-button-text-color);
+  }
+
+  .feature-list-icon {
+    color: var(--primary-color);
+  }
+}
+
+/* Theme-specific styles for Bold HealthTech */
+.palette-boldHealthTech {
+  /* Custom styles for Bold HealthTech theme */
+  .card {
+    background-color: var(--card-bg-color);
+  }
+
+  .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--button-text-color);
+  }
+
+  .btn-accent {
+    background-color: var(--accent-color);
+    color: var(--accent-button-text-color);
+  }
+
+  .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+  }
+
+  .feature-list-icon {
+    color: var(--accent-color);
+  }
+}
+
+/* Footer specific styles */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.dark footer {
+  color: white;
+}
+
+.palette-softMedical footer {
+  background-color: var(--primary-color);
+}
+
+.palette-boldHealthTech footer {
+  background-color: var(--primary-color);
+}
+
+/* Desktop-specific styles */
+@media (min-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+
+  .desktop-container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .desktop-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Desktop navigation */
+  .desktop-nav {
+    height: 80px;
+  }
+
+  /* Desktop typography adjustments */
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .mobile-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Mobile typography adjustments */
+  h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  /* Adjust spacing for mobile */
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Theme-specific font adjustments */
+.palette-softMedical {
+  --heading-line-height: 1.3;
+  --letter-spacing-tight: -0.015em;
+}
+
+.palette-boldHealthTech {
+  --heading-line-height: 1.15;
+  --letter-spacing-tight: -0.03em;
+  --font-weight-bold: 800;
+}
+
+/* Status colors */
+.text-success {
+  color: var(--success-color);
+}
+
+.text-warning {
+  color: var(--warning-color);
+}
+
+.text-error {
+  color: var(--error-color);
+}
+
+.text-info {
+  color: var(--info-color);
+}
+
+.bg-success {
+  background-color: var(--success-color);
+}
+
+.bg-warning {
+  background-color: var(--warning-color);
+}
+
+.bg-error {
+  background-color: var(--error-color);
+}
+
+.bg-info {
+  background-color: var(--info-color);
+}
+
+/* Theme Selector Modal - Enhanced for Desktop */
+.theme-selector-modal {
+  @apply fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.theme-selector-content {
+  @apply w-full max-w-md p-6 rounded-lg shadow-xl;
+  animation: scaleIn 0.2s ease-out;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+/* Desktop enhancements for theme selector */
+@media (min-width: 768px) {
+  .theme-selector-content {
+    @apply p-8 max-w-2xl;
+    width: 600px;
+  }
+
+  .theme-selector-header {
+    @apply flex justify-between items-center mb-6;
+  }
+
+  .theme-selector-title {
+    @apply text-2xl font-bold;
+    color: var(--primary-color);
+  }
+
+  .theme-selector-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+
+  .theme-option {
+    @apply flex items-center p-6 rounded-lg transition-all duration-200;
+    min-height: 100px;
+    background-color: var(--card-bg-color);
+  }
+
+  .theme-color-swatch {
+    @apply w-16 h-16 rounded-full mr-6 flex-shrink-0;
+  }
+
+  .theme-option-content {
+    @apply flex-grow;
+  }
+
+  .theme-option-title {
+    @apply text-xl font-semibold mb-1;
+    color: var(--text-color);
+  }
+
+  .theme-option-description {
+    @apply text-base opacity-80;
+    color: var(--text-muted-color);
+  }
+
+  .theme-option-active {
+    @apply ring-4 transform scale-[1.02];
+    background-color: var(--accent-color);
+    ring-color: var(--primary-color);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .theme-option-inactive {
+    @apply hover:bg-opacity-50 transform transition-transform hover:scale-[1.01];
+    background-color: var(--card-bg-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .theme-selector-footer {
+    @apply mt-8 flex justify-end;
+  }
+
+  .theme-selector-close-btn {
+    @apply px-6 py-3 rounded-md text-white font-medium transition-colors duration-200;
+    background-color: var(--primary-color);
+  }
+
+  .theme-selector-close-btn:hover {
+    filter: brightness(90%);
+  }
+}
+
+/* Theme selector dropdown (non-modal version) */
+.theme-selector-dropdown {
+  @apply absolute mt-2 rounded-md shadow-lg py-1 z-50 animate-fadeIn;
+  min-width: 280px;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+}
+
+@media (min-width: 768px) {
+  .theme-selector-dropdown {
+    min-width: 320px;
+  }
+
+  .theme-dropdown-option {
+    @apply flex items-center w-full px-4 py-3 text-sm transition-colors duration-200;
+    color: var(--text-color);
+  }
+
+  .theme-dropdown-info {
+    @apply flex flex-col items-start;
+  }
+
+  .theme-dropdown-title {
+    @apply font-medium text-base;
+    color: var(--text-color);
+  }
+
+  .theme-dropdown-description {
+    @apply text-sm opacity-70;
+    color: var(--text-muted-color);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Theme preview section */
+.theme-preview-section {
+  @apply mt-6 p-4 rounded-lg border;
+  border-color: var(--border-color);
+  background-color: var(--card-bg-color);
+}
+
+.theme-preview-title {
+  @apply text-lg font-medium mb-3;
+  color: var(--primary-color);
+}
+
+.theme-preview-elements {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.theme-preview-element {
+  @apply p-3 rounded border;
+  border-color: var(--border-color);
+  background-color: var(--background-color);
+}
+
+/* Theme selector button in navbar - enhanced for desktop */
+@media (min-width: 768px) {
+  .theme-selector-btn {
+    @apply flex items-center justify-center p-2 rounded-full transition-colors duration-200;
+  }
+
+  .theme-selector-btn:hover {
+    background-color: var(--accent-color);
+  }
+
+  .theme-selector-btn-icon {
+    @apply w-5 h-5;
+    color: var(--primary-color);
+  }
+
+  .theme-selector-btn-text {
+    @apply ml-2 text-sm font-medium;
+    color: var(--text-color);
+  }
+}
+
+/* Fix for sections with white background in dark mode */
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: var(--background-color) !important;
+}
+
+/* Fix for text colors in dark mode */
+.dark .text-gray-900 {
+  color: var(--text-color) !important;
+}
+
+.dark .text-gray-800 {
+  color: var(--text-color) !important;
+}
+
+.dark .text-gray-700 {
+  color: var(--text-muted-color) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--text-muted-color) !important;
+}
+
+.dark .text-gray-500 {
+  color: var(--text-muted-color) !important;
+}
+
+/* Fix for border colors in dark mode */
+.dark .border-gray-200,
+.dark .border-gray-100 {
+  border-color: var(--border-color) !important;
+}
+
+/* Fix for hardcoded background colors */
+section[style*="background-color"] {
+  transition: background-color var(--transition-duration) var(--transition-timing);
+}
+
+/* Fix for hardcoded text colors */
+[style*="color:"] {
+  transition: color var(--transition-duration) var(--transition-timing);
+}
+
+/* Fix for hardcoded border colors */
+[style*="border-color"] {
+  transition: border-color var(--transition-duration) var(--transition-timing);
+}
+
+/* Dark theme text color overrides */
+.dark .text-gray-900,
+.dark .text-black {
+  color: var(--text-color) !important;
+}
+
+.dark .text-gray-800 {
+  color: var(--text-color) !important;
+}
+
+.dark .text-gray-700 {
+  color: var(--text-muted-color) !important;
+}
+
+.dark .text-gray-600 {
+  color: var(--text-muted-color) !important;
+}
+
+.dark .text-gray-500 {
+  color: var(--text-muted-color) !important;
+}
+
+/* Ensure all paragraphs use the correct text color */
+p {
+  margin-bottom: 1rem;
+  max-width: 70ch;
+  line-height: var(--body-line-height);
+  color: var(--text-color);
+}
+
+/* Ensure all spans use the correct text color unless otherwise specified */
+span:not([class*="text-"]):not([style*="color"]) {
+  color: var(--text-color);
+}
+
+/* Ensure all list items use the correct text color */
+li:not([class*="text-"]) {
+  color: var(--text-color);
+}
+
+/* Override inline styles in dark mode */
+.dark [style*="color: rgb(31, 41, 55)"],
+.dark [style*="color: #1f2937"],
+.dark [style*="color: black"],
+.dark [style*="color: #000"],
+.dark [style*="color: #111827"] {
+  color: var(--text-color) !important;
+}
+
+.dark [style*="color: rgb(107, 114, 128)"],
+.dark [style*="color: #6b7280"],
+.dark [style*="color: rgb(75, 85, 99)"],
+.dark [style*="color: #4b5563"] {
+  color: var(--text-muted-color) !important;
+}
+
+/* Button color overrides for dark mode */
+.dark button[style*="background-color: var(--accent-color)"] {
+  color: var(--accent-button-text-color) !important;
+}
+
+.dark button[style*="background-color: var(--primary-color)"] {
+  color: var(--button-text-color) !important;
+}
+
+.dark .btn-primary {
+  color: var(--button-text-color) !important;
+}
+
+.dark .btn-accent {
+  color: var(--accent-button-text-color) !important;
+}
+
+/* Accent color text contrast fixes */
+[style*="background-color: var(--accent-color)"] {
+  color: var(--accent-button-text-color);
+}
+
+/* Ensure buttons in dark mode have proper text color */
+.dark button:not([class*="text-"]):not([style*="color"]) {
+  color: var(--text-color);
+}
+
+.dark button.btn-primary,
+.dark button.form-button,
+.dark a.btn-primary {
+  color: var(--button-text-color) !important;
+}
+
+.dark button.btn-accent,
+.dark a.btn-accent {
+  color: var(--accent-button-text-color) !important;
+}
+
+/* Ensure all buttons follow theme toggle */
+button.btn,
+a.btn {
+  transition: background-color var(--transition-duration) var(--transition-timing), color var(--transition-duration)
+    var(--transition-timing), border-color var(--transition-duration) var(--transition-timing);
+}
+
+/* Side Navbar Styles */
+.side-navbar {
+  width: 280px;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+  .side-navbar {
+    width: 0;
+    overflow: hidden;
+  }
+}
+
+/* Adjust main content for sidebar */
+@media (min-width: 1024px) {
+  .main-content {
+    margin-left: 280px;
+  }
+}
+
+/* Floating bottom navbar - redesigned for center positioning */
+.floating-navbar {
+  @apply fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50 rounded-full shadow-xl;
+  max-width: min(95%, 500px);
+  width: auto;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hide bottom navbar on desktop */
+@media (min-width: 768px) {
+  .floating-navbar.md\:hidden {
+    display: none;
+  }
+}
+
+/* Ensure content has proper padding on mobile */
+@media (max-width: 767px) {
+  main {
+    padding-bottom: 80px; /* Space for bottom navbar */
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+/* Additional styles for the new navbar */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.3s ease-in-out;
+}
+
+/* Add CSS for hiding scrollbars */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
